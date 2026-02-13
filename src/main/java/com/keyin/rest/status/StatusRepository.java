@@ -1,6 +1,5 @@
-package com.keyin.rest;
+package com.keyin.rest.status;
 
-import com.keyin.domain.Status;
 import org.springframework.data.repository.CrudRepository;
 
 public interface StatusRepository extends CrudRepository<Status, Long> {

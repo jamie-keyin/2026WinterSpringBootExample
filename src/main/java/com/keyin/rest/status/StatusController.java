@@ -1,6 +1,5 @@
-package com.keyin.rest;
+package com.keyin.rest.status;
 
-import com.keyin.domain.Status;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -8,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class StatusController {
     @Autowired
-    private StatusRepository statusRepository;
+    private StatusService statusService;
 
     @GetMapping("/flight_ops/status")
     public Status getDefaultStatus() {
-        return statusRepository.findById((long)1).orElse(null);
+        return statusService.getDefaultStatus();
     }
 }
