@@ -42,4 +42,19 @@ public class StatusServiceTest {
 
         Assertions.assertNull(result);
     }
+
+    @Test
+    public void testGetAllStatuses() {
+        Status status = new Status();
+        status.setId(1L);
+        status.setStatus("Active");
+
+        Mockito.when(statusRepository.findAll()).thenReturn(java.util.List.of(status));
+
+        java.util.List<Status> results = statusService.getAllStatuses();
+
+        Assertions.assertNotNull(results);
+        Assertions.assertEquals(1, results.size());
+        Assertions.assertEquals("Active", results.get(0).getStatus());
+    }
 }
